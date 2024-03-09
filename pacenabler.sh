@@ -12,13 +12,15 @@ xbps-install -y asciidoc make findutils pkgconf sequoia-sq curl pacman
 
 # config arch-install-scripts
 cd arch-install-scripts
-make && make-install
+make && make install
+echo "Arch Linux installd scripts (pacstrap, genfstab, and arch-chroot) successfully installed."
 cd ..
 
 # config archlinux-keyring
 cd archlinux-keyring
 ./keyringctl build
 PREFIX=/usr make install
+echo "Arch Linux keyring successfully installed and populated."
 cd ..
 
 # config pacman environment
@@ -49,4 +51,4 @@ pacman-key --populate archlinux
 rm -rf arch-install-scripts
 rm -rf archlinux-keyring
 
-echo "Arch pacman now available to use."
+echo "Arch Linux pacman is now ready to be used."
